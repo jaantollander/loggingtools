@@ -47,8 +47,8 @@ handlers:
 
 
 loggers:
-  # TODO: replace package_name
-  package_name:
+  # TODO: replace your_logger
+  your_logger:
     level: INFO
     handlers: [debug_file_handler, info_file_handler]
     propagate: no
