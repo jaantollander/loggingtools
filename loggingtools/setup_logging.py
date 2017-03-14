@@ -21,11 +21,11 @@ def _config_dictionary(path_or_config: Union[str, dict]) -> dict:
         return path_or_config
     elif isinstance(path_or_config, str):
         if os.path.exists(path_or_config):
-            ext = os.path.splitext(path_or_config)
-            if ext == 'json':
+            _, ext = os.path.splitext(path_or_config)
+            if ext == '.json':
                 with open(path_or_config, 'rt') as fp:
                     return json.load(fp)
-            elif ext in ('yml', 'yaml'):
+            elif ext in ('.yml', '.yaml'):
                 try:
                     from ruamel import yaml
                 except ImportError:
@@ -36,6 +36,8 @@ def _config_dictionary(path_or_config: Union[str, dict]) -> dict:
                                       'configuration from yaml file. \n')
                 with open(path_or_config, 'rt') as fp:
                     return yaml.safe_load(fp.read())
+            raise ValueError('File extension {ext} is not supported.'.format(
+                ext=ext))
         else:
             raise FileNotFoundError(
                 'Configuration file: "{path}" doesn\'t exist.'.format(
