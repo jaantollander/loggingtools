@@ -8,7 +8,7 @@ def cli():
 
 @cli.command()
 @click.argument('filename')
-@click.option('package_name')
+@click.option('--name', '-n')
 def create():
     """Create new logging configuration file."""
     raise NotImplementedError()
