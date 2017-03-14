@@ -1,5 +1,11 @@
 typing
 colorlog
 colorama
-# pyyaml
+
+## ruamel is recommended over pyyaml because it can preserve comments
+## and support newer standard of yaml
 ruamel.yaml
+# pyyaml
+
+## Commandline client
+click
