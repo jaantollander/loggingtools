@@ -1,0 +1,9 @@
+-r requirements.txt
+
+
+## Testing
+tox
+pytest
+pytest-cov
+pytest-xdist
+coverage

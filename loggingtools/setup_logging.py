@@ -43,22 +43,22 @@ def _config_dictionary(path_or_config: Union[str, dict]) -> dict:
 
 
 def setup_logging(path_or_config: Union[str, dict],
+                  logdir: Optional[str] = '.logs',
                   default_level: int = logging.INFO,
-                  env_key: str = 'LOG_CFG',
-                  logdir: Optional[str] = '.logs') -> None:
+                  env_key: str = 'LOG_CFG') -> None:
     """Setup logging configurations defined by dict configuration.
 
     Args:
         path_or_config (str):
             - dict: Dictionary config
             - str: Path to load dictionary configuration from. Can be json or yaml file.
+        logdir (str|None):
+            - None: Saves logfiles to current working directory
+            - str: Saves logfiles to specified directory.
         default_level (int|str):
             Default logging level to use if dict config is not configured.
         env_key (str):
             Environment key for setting path.
-        logdir (str|None):
-            - None: Saves logfiles to current working directory
-            - str: Saves logfiles to specified directory.
 
     References:
         - https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/
