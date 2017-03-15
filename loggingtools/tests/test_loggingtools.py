@@ -37,3 +37,11 @@ def test_log_with():
             return True
 
         assert with_args_kwargs('a', 1, c='c')
+
+        class Foo:
+            @log_with(logger)
+            def method(self, a, b, c='c', d='d'):
+                return True
+
+        assert Foo().method('1', '2', c='3', d='4')
+        assert Foo().method('a', 'b', d='d')
