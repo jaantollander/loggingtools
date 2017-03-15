@@ -27,3 +27,9 @@ Python Tools for Setting up Logging
    @log_with(logger)
    def function(arg, arg2):
        ...
+
+
+References
+----------
+https://docs.python.org/3/library/logging.html
+https://github.com/borntyping/python-colorlog

@@ -4,7 +4,7 @@ import os
 from typing import Union, Optional
 
 
-def _config_dictionary(path_or_config: Union[str, dict]) -> dict:
+def load_config(path_or_config: Union[str, dict]) -> dict:
     """Config dictionary
 
     Args:
@@ -69,7 +69,7 @@ def setup_logging(path_or_config: Union[str, dict],
         - Read configs from config (.cfg) file
     """
     path_or_config = os.getenv(env_key, path_or_config)
-    config = _config_dictionary(path_or_config)
+    config = load_config(path_or_config)
 
     if config:
         # Configure directory to save logfiles
