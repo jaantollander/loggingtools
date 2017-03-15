@@ -1,11 +1,12 @@
 from setuptools import setup
 from loggingtools import __version__
 
+
 setup(
     name='LoggingTools',
     version=__version__,
     packages=['loggingtools', 'loggingtools.tests'],
-    url='https://github.com/jaantollander/LoggingTools',
+    url='https://github.com/jaantollander/loggingtools.git',
     license='MIT',
     author='Jaan Tollander de Balsch',
     author_email='jaan.tollander@gmail.com',
