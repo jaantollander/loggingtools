@@ -3,7 +3,7 @@ from loggingtools import __version__
 
 
 setup(
-    name='LoggingTools',
+    name='loggingtools',
     version=__version__,
     packages=['loggingtools', 'loggingtools.tests'],
     url='https://github.com/jaantollander/loggingtools.git',
@@ -16,4 +16,5 @@ setup(
             'loggingtools=loggingtools.cli:cli',
         ]
     },
+    install_requires=['typing', 'colorlog', 'colorama', 'ruamel.yaml', 'click']
 )
