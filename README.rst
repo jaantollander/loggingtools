@@ -37,7 +37,7 @@ Currently can be installed through git
 
 .. code-block:: bash
 
-   pip install git+https://github.com/jaantollander/LoggingTools.git
+   pip install git+https://github.com/jaantollander/loggingtools.git
 
 
 References
