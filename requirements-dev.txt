@@ -4,7 +4,7 @@
 ## Testing
 tox==2.6.0
 coverage==4.3.4
-codecov
+codecov==2.0.5
 pytest
 pytest-cov
 pytest-xdist
