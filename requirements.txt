@@ -7,4 +7,4 @@ colorama==0.3.7
 ruamel.yaml==0.14.2
 
 ## Commandline client
-click
+click==6.7
