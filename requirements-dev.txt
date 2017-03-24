@@ -2,9 +2,9 @@
 
 
 ## Testing
-tox
-coverage
-codecov
-pytest
-pytest-cov
-pytest-xdist
+tox==2.6.0
+coverage==4.3.4
+codecov==2.0.5
+pytest==3.0.7
+pytest-cov==2.4.0
+pytest-xdist==1.15.0
