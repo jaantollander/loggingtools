@@ -3,7 +3,7 @@
 
 ## Testing
 tox==2.6.0
-coverage
+coverage==4.3.4
 codecov
 pytest
 pytest-cov
