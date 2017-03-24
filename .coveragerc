@@ -1,0 +1,15 @@
+[run]
+source = loggingtools
+omit =
+    */__init__.py,
+    */conftest.py,
+    docs/*,
+    *conftest.py,
+
+    ; Django
+    *manage.py,
+    *settings*.py,
+    *urls.py,
+    *admin.py,
+    *migrations/*,
+    *wsgi.py,

@@ -1,0 +1,11 @@
+include LICENSE.txt README.rst
+
+recursive-include loggingtools *
+recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude docs/_build *
+
+include versioneer.py
+include loggingtools/_version.py

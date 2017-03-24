@@ -3,7 +3,8 @@
 
 ## Testing
 tox
+coverage
+codecov
 pytest
 pytest-cov
 pytest-xdist
-coverage
