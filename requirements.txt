@@ -1,10 +1,10 @@
-typing
-colorlog
-colorama
+typing==3.5.3.0
+colorlog==2.10.0
+colorama==0.3.7
 
 ## ruamel is recommended over pyyaml because it can preserve comments
 ## and support newer standard of yaml
-ruamel.yaml
+ruamel.yaml==0.14.2
 
 ## Commandline client
-click
+click==6.7

@@ -23,6 +23,9 @@ Python Tools for Setting up Logging
    :target: https://codecov.io/gh/jaantollander/loggingtools
    :alt: Codecov coverage hosting
 
+.. |Gitter| image:: https://badges.gitter.im/loggingtools/Lobby.svg
+   :alt: Join the chat at https://gitter.im/loggingtools/Lobby
+   :target: https://gitter.im/loggingtools/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. todo:: Command line client instruction
 
