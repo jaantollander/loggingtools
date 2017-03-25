@@ -1,10 +1,13 @@
 [run]
 source = loggingtools
 omit =
-    */__init__.py,
-    */conftest.py,
+    *__init__.py,
+    *conftest.py,
     docs/*,
     *conftest.py,
+
+    ; Versioneer
+    *_version.py
 
     ; Django
     *manage.py,

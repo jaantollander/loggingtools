@@ -42,7 +42,7 @@ handlers:
 
 
 loggers:
-  package_name:
+  loggingtools:
     level: INFO
     handlers: [debug_file_handler, info_file_handler]
     propagate: no
