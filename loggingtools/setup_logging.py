@@ -73,7 +73,7 @@ def setup_logging(path_or_config: Union[str, dict],
     # Configure directory to save logfiles
     if logdir:
         # Create directory if it doesnt already exist.
-        os.makedirs(logdir, exist_ok=True)
+        os.makedirs(logdir, 0o700, exist_ok=True)
 
         # Prepend directory path to filenames.
         for name in config['handlers']:
