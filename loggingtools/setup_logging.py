@@ -60,6 +60,7 @@ def setup_logging(path_or_config, logdir='.logs', env_key='LOG_CFG'):
         - Add support for .ini and .cfg files
     """
     path_or_config = os.getenv(env_key, path_or_config)
+
     if isinstance(path_or_config, str):
         config = load_config(path_or_config)
     elif isinstance(path_or_config, dict):
@@ -70,7 +71,10 @@ def setup_logging(path_or_config, logdir='.logs', env_key='LOG_CFG'):
     # Configure directory to save logfiles
     if logdir:
         # Create directory if it doesnt already exist.
-        os.makedirs(logdir, 0o700, exist_ok=True)
+        try:
+            os.makedirs(logdir, 0o700, exist_ok=True)
+        except FileExistsError:
+            pass
 
         # Prepend directory path to filenames.
         for name in config['handlers']:
