@@ -31,5 +31,5 @@ deploy:
       VkY5a3VUZEUrbkNtUTQ3VUo2NXZtMHM0RWh3UkN4L1FLQlVlSzB1b20zcXF1NVhwVUNlcWZPWWc9
   true:
     condition: $TOXENV == py35
-    repo: jaantollander/pypackage
+    repo: jaantollander/loggingtools
     tags: true
