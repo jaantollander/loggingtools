@@ -1,6 +1,6 @@
 Python Tools for Setting up Logging
 -----------------------------------
-|Travis| |Appveoyr| |CircleCI| |Codecov| |QuantifiedCode| |Pyup| |Gitter|
+|Travis| |Appveoyr| |Codecov| |QuantifiedCode| |Pyup| |Gitter|
 
 
 .. |Pyup| image:: https://pyup.io/repos/github/jaantollander/loggingtools/shield.svg
@@ -18,10 +18,6 @@ Python Tools for Setting up Logging
 .. |Appveoyr| image:: https://ci.appveyor.com/api/projects/status/4ix406f1jpgj952t?svg=true
    :target: https://ci.appveyor.com/project/jaantollander/loggingtools
    :alt: Appveoyr continuous intergration
-
-.. |CircleCI| image:: https://circleci.com/gh/jaantollander/loggingtools.svg?style=svg
-   :target: https://circleci.com/gh/jaantollander/loggingtools
-   :alt: Circle continuous intergration
 
 .. |Codecov| image:: https://codecov.io/gh/jaantollander/loggingtools/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/jaantollander/loggingtools
