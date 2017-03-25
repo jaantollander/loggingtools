@@ -1,9 +1,0 @@
-include MANIFEST.txt
-include AUTHORS LICENSE CONTRIBUTING README.*
-include requirements.txt requirements-dev.txt
-include setup.py
-
-recursive-include loggingtools *
-
-recursive-exclude * __pycache__
-recursive-exclude * *.py[co]
