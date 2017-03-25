@@ -5,7 +5,7 @@ import click
 import ruamel.yaml as yaml
 
 FORMATS = ('yaml', 'json')
-path = os.path.join(os.path.dirname(__file__), 'templates', 'logging.yaml')
+path = os.path.join(os.path.dirname(__file__), 'templates', 'logging.yml')
 with open(path) as fp:
     CONFIG_DICT = yaml.safe_load(fp)
 

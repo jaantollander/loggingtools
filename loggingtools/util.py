@@ -3,7 +3,7 @@ import json
 import os
 
 
-def convert_yaml_to_json(filepath='logging.yaml'):
+def convert_yaml_to_json(filepath='logging.yml'):
     with open(filepath, 'r') as fp:
         config = yaml.load(fp)
 

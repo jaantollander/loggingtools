@@ -4,27 +4,28 @@ import logging
 from loggingtools.setup_logging import setup_logging
 from loggingtools.log_with import log_with
 
-
-conf_files = ('logging.yaml', 'logging.json')
-
-
-def filepath(conf_file: str) -> str:
-    return os.path.join(os.path.dirname(__file__), 'files', conf_file)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+CONF_FILES = [os.path.join(TEMPLATE_DIR, filename) for filename in
+              ('logging.yml', 'logging.json')]
+LOGGER_NAME = 'package_name'
 
 
 def test_setup_logging():
-    for conf_file in conf_files:
+    for conf_file in CONF_FILES:
         with tempfile.TemporaryDirectory() as tmpdir:
-            setup_logging(filepath(conf_file), logdir=tmpdir)
-            logger = logging.getLogger('package_name')
-            logger.info('This should work.')
+            setup_logging(conf_file, logdir=tmpdir)
+            logger = logging.getLogger(LOGGER_NAME)
+            logger.info('')
             assert True
+
+            logging.shutdown()
 
 
 def test_log_with():
     with tempfile.TemporaryDirectory() as tmpdir:
-        setup_logging(filepath(conf_files[0]), logdir=tmpdir)
-        logger = logging.getLogger('package_name')
+        setup_logging(CONF_FILES[0], logdir=tmpdir)
+        logger = logging.getLogger(LOGGER_NAME)
 
         @log_with(logger)
         def with_args(a, b, c, d):
@@ -45,3 +46,5 @@ def test_log_with():
 
         assert Foo().method('1', '2', c='3', d='4')
         assert Foo().method('a', 'b', d='d')
+
+        logging.shutdown()
