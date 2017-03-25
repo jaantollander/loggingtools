@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 import pytest
 from click.testing import CliRunner
 
-from loggingtools.cli import create
+from loggingtools.cli import config
 
 
 @pytest.fixture(scope='module')
@@ -28,6 +28,6 @@ def test_cli(tmpdir, fileformat):
     filename = 'logging'
     runner = CliRunner()
     with tmpdir():
-        result = runner.invoke(create, ['-n', filename, '-f', fileformat])
+        result = runner.invoke(config, ['-n', filename, '-f', fileformat])
         assert result.exit_code == 0
         assert os.path.exists(filename + '.' + fileformat)

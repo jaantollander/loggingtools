@@ -5,9 +5,9 @@ language: python
 python: 3.5
 
 env:
-  - TOXENV=py35
-  - TOXENV=py34
   - TOXENV=py33
+  - TOXENV=py34
+  - TOXENV=py35
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox
@@ -16,7 +16,7 @@ install: pip install -U tox
 script: tox -e ${TOXENV}
 
 after_success:
-  - codecov
+  - codecov --token ee12b177-84c3-4a91-b8e2-d2b43c682666
 
 # After you create the Github repo and add it to Travis, run the
 # travis_pypi_setup.py script to finish PyPI deployment setup

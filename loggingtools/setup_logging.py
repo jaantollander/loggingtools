@@ -1,10 +1,9 @@
 import json
 import logging.config
 import os
-from typing import Union, Optional
 
 
-def load_config(filepath: str) -> dict:
+def load_config(filepath):
     """Config dictionary
 
     Args:
@@ -41,13 +40,11 @@ def load_config(filepath: str) -> dict:
                 path=filepath))
 
 
-def setup_logging(path_or_config: Union[str, dict],
-                  logdir: Optional[str] = '.logs',
-                  env_key: str = 'LOG_CFG') -> None:
+def setup_logging(path_or_config, logdir='.logs', env_key='LOG_CFG'):
     """Setup logging configurations defined by dict configuration.
 
     Args:
-        path_or_config (str):
+        path_or_config (str|dict):
             - dict: Dictionary config
             - str: Path to load dictionary configuration from. Can be json or yaml file.
         logdir (str|None):

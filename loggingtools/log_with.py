@@ -2,8 +2,6 @@ import functools
 import inspect
 import logging
 
-from typing import Optional, List
-
 
 class log_with(object):
     """Logging decorator that allows you to log with a specific logger.
@@ -11,8 +9,8 @@ class log_with(object):
     Todo:
         - Indent message by function call stack level
     """
-    def __init__(self, logger: Optional[logging.Logger] = None,
-                 loglevel: int = logging.INFO):
+
+    def __init__(self, logger=None, loglevel=logging.INFO):
         """Initialize log_with
 
         Args:
@@ -25,7 +23,18 @@ class log_with(object):
         self.loglevel = loglevel
 
     @staticmethod
-    def format_args(args: tuple, kwargs: dict, arg_names: List[str]) -> str:
+    def format_args(args, kwargs, arg_names):
+        """Format args
+        
+        Args:
+            args (tuple): 
+            kwargs (dict): 
+            arg_names (List[str]): 
+            
+        Returns:
+            str:
+        """
+
         def items():
             for i, name in enumerate(arg_names):
                 if i < len(args):
@@ -37,7 +46,15 @@ class log_with(object):
         return '{' + d + '}'
 
     @staticmethod
-    def format_func(function: str) -> str:
+    def format_func(function):
+        """Format func
+        
+        Args:
+            function (str): 
+
+        Returns:
+            str:
+        """
         return '<' + function.__name__ + '>'
 
     def __call__(self, function):

@@ -16,10 +16,10 @@ def cli():
 @cli.command()
 @click.option('--filename', '-n', default='logging', type=str)
 @click.option('--fileformat', '-f', default='yml', type=click.Choice(FORMATS))
-def create(filename: str, fileformat: str):
+def config(filename: str, fileformat: str):
     """Create new logging configuration file.
     
-    >>> create('logging', 'yml')
+    >>> config('logging', 'yml')
     """
     click.secho('Creating "{}.{}"'.format(filename, fileformat))
 
