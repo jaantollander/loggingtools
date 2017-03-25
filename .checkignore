@@ -1,3 +1,4 @@
 # https://docs.quantifiedcode.com/configuration/config_checkignore.html
 versioneer.py
 */_version.py
+travis_pypi_setup.py
