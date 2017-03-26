@@ -27,7 +27,8 @@ Python Tools for Setting up Logging
    :alt: Join the chat at https://gitter.im/loggingtools/Lobby
    :target: https://gitter.im/loggingtools/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-.. todo:: Command line client instruction
+Loggingtools
+------------
 
 ``setup_logging``
 
@@ -35,7 +36,7 @@ Python Tools for Setting up Logging
 
    import logging
    from loggingtools import setup_logging
-   setup_logging('logging.yaml')
+   setup_logging('logging.yml')
    logger = logging.getLogger('<your_logger>')
    ...
 
@@ -45,7 +46,7 @@ Python Tools for Setting up Logging
 .. code-block:: python
 
    import logging
-   from loggingtools import setup_logging
+   from loggingtools import log_with
 
    ...  # setup your loggers
 
@@ -65,7 +66,19 @@ Loggingtools can be installed through ``pip`` using command
    pip install loggingtools
 
 
+Command Line Client
+-------------------
+::
+
+   loggingtools config
+
+Command line arguments
+
+-n, --filename=logging  Filename for logging configuration
+-f, --fileformat=yml    Fileformat: {yml, json}
+
+
 References
 ----------
-https://docs.python.org/3/library/logging.html
-https://github.com/borntyping/python-colorlog
+- https://docs.python.org/3/library/logging.html
+- https://github.com/borntyping/python-colorlog
