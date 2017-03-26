@@ -58,13 +58,11 @@ Python Tools for Setting up Logging
 
 Installation
 ------------
-.. todo:: PyPI package
-
-Currently can be installed through git
+Loggingtools can be installed through ``pip`` using command
 
 .. code-block:: bash
 
-   pip install git+https://github.com/jaantollander/loggingtools.git
+   pip install loggingtools
 
 
 References
