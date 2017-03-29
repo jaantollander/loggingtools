@@ -66,7 +66,8 @@ def setup_logging(path_or_config, logdir='.logs', env_key='LOG_CFG'):
     elif isinstance(path_or_config, dict):
         config = path_or_config
     else:
-        raise Exception("Invalid argument")
+        raise TypeError("Argument 'path_or_config' should be string or "
+                        "dictionary.")
 
     # Configure directory to save logfiles
     if logdir:
