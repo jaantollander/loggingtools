@@ -13,4 +13,4 @@ pytest-xdist==1.15.0
 
 
 ## Documentation
-sphinx==1.5.3
+sphinx==1.5.4
