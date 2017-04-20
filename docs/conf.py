@@ -15,7 +15,8 @@ requirements:
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
+from loggingtools import __version__
 
 
 # -- Build apidocs automatically when sphinx is run ----------------------
@@ -63,7 +64,6 @@ copyright = author
 
 
 # Version and Release
-from loggingtools import __version__
 version = __version__
 release = __version__
 
