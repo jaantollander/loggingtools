@@ -1,11 +1,11 @@
 -r requirements.txt
 
 ## Packaging
-setuptools==34.3.3
+setuptools==35.0.1
 
 
 ## Testing
-tox==2.6.0
+tox==2.7.0
 codecov==2.0.5
 pytest==3.0.7
 pytest-cov==2.4.0
