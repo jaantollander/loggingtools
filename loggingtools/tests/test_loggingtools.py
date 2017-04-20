@@ -1,3 +1,4 @@
+import pytest
 import tempfile
 import logging
 from loggingtools.setup_logging import setup_logging
@@ -16,31 +17,33 @@ def test_setup_logging():
             logging.shutdown()
 
 
-def test_log_with():
+@pytest.mark.parametrize('logger', [None, logging.getLogger(LOGGER_NAME)])
+@pytest.mark.parametrize('qualname', [False, True])
+@pytest.mark.parametrize('timed', [False, True])
+def test_log_with(logger, qualname, timed):
     with tempfile.TemporaryDirectory() as tmpdir:
         setup_logging(CONF_PATHS[0], logdir=tmpdir)
-        logger = logging.getLogger(LOGGER_NAME)
 
-        @log_with(logger)
+        @log_with(logger=logger, qualname=qualname, timed=timed)
         def with_args(a, b, c, d):
             return True
 
         assert with_args('a', 1, 'c', 3)
 
-        @log_with()
+        @log_with(logger=logger, qualname=qualname, timed=timed)
         def with_args(a, b, c, d):
             return True
 
         assert with_args('a', 1, 'c', 3)
 
-        @log_with(logger)
+        @log_with(logger=logger, qualname=qualname, timed=timed)
         def with_args_kwargs(a, b, c='c', d=3):
             return True
 
         assert with_args_kwargs('a', 1, c='c')
 
         class Foo:
-            @log_with(logger)
+            @log_with(logger=logger, qualname=qualname, timed=timed)
             def method(self, a, b, c='c', d='d'):
                 return True
 
