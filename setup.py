@@ -12,7 +12,6 @@ tests_require = [
     'tox',
     'pytest',
     'pytest-cov',
-    'pytest-xdist',
 ]
 
 setup(
@@ -34,4 +33,15 @@ setup(
     install_requires=install_requires,
     test_suite='tests',
     tests_require=tests_require,
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+    ]
 )

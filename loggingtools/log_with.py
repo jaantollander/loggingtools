@@ -4,11 +4,7 @@ import logging
 
 
 class log_with(object):
-    """Logging decorator that allows you to log with a specific logger.
-
-    Todo:
-        - Indent message by function call stack level
-    """
+    """Logging decorator that allows you to log with a specific logger."""
 
     def __init__(self, logger=None, loglevel=logging.INFO):
         """Initialize log_with

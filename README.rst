@@ -1,6 +1,6 @@
 Python Tools for Setting up Logging
 -----------------------------------
-|Travis| |Appveoyr| |Codecov| |QuantifiedCode| |Pyup| |Gitter|
+|Travis| |Appveoyr| |Codecov| |QuantifiedCode| |Pyup| |Gitter| |Readthedocs|
 
 
 .. |Pyup| image:: https://pyup.io/repos/github/jaantollander/loggingtools/shield.svg
@@ -26,6 +26,10 @@ Python Tools for Setting up Logging
 .. |Gitter| image:: https://badges.gitter.im/loggingtools/Lobby.svg
    :alt: Join the chat at https://gitter.im/loggingtools/Lobby
    :target: https://gitter.im/loggingtools/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+.. |Readthedocs| image:: https://readthedocs.org/projects/loggingtools/badge/?version=latest
+   :target: http://loggingtools.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 Loggingtools
 ------------
