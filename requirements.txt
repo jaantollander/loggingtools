@@ -3,7 +3,7 @@ colorama==0.3.7
 
 ## ruamel is recommended over pyyaml because it can preserve comments
 ## and support newer standard of yaml
-ruamel.yaml==0.14.2
+ruamel.yaml==0.14.8
 
 ## Commandline client
 click==6.7
