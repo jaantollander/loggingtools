@@ -135,9 +135,7 @@ def log_with(logger=None, loglevel=logging.INFO, qualname=False, timed=False):
         @functools.wraps(_func)
         def wrapper(*args, **kwargs):
             _logger.log(loglevel, msg.format(fmt=format_args(args, kwargs, arg_names)))
-            start = timer()
             result = _func(*args, **kwargs)
-            end = timer()
             return result
         return wrapper
     return decorator
