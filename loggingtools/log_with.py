@@ -1,6 +1,7 @@
 import functools
 import inspect
 import logging
+from itertools import chain
 from timeit import default_timer as timer
 
 import math
@@ -54,7 +55,7 @@ def format_time(timespan, precision=3):
     return u"{:.1f} {}".format(timespan * scaling[order], units[order])
 
 
-def format_args(args, kwargs, arg_names):
+def format_args(args, kwargs, arg_names, ignore=set()):
     """Format args
 
     Args:
@@ -68,6 +69,8 @@ def format_args(args, kwargs, arg_names):
 
     def items():
         for i, name in enumerate(arg_names):
+            if name in ignore:
+                continue
             if i < len(args):
                 yield name, args[i]
             elif name in kwargs:
@@ -94,7 +97,8 @@ def format_func(function, qualname=False):
     return '<' + function.__name__ + '>'
 
 
-def log_with(logger=None, loglevel=logging.INFO, qualname=False, timed=False):
+def log_with(logger=None, loglevel=logging.INFO, arguments=True, qualname=False,
+             timed=False, ignore=()):
     """Logging decorator
 
     Args:
@@ -102,40 +106,44 @@ def log_with(logger=None, loglevel=logging.INFO, qualname=False, timed=False):
             Instance of a logger
         loglevel (int):
             Level of logging
+        arguments(bool):
+            Flag whether to log arguments that are passed to the function
         qualname (bool): 
+            Flag whether to use __qualname__ instead of __name__ for getting 
+            the name of the decorated function.
         timed (bool): 
+            Flag whether to log the execution time of the function.
+        ignore (Iterable[str]):
+            Argument names to ignore for logging arguments.
 
     Examples:
-        >>> @log_with(loglevel=logging.DEBUG)
+        >>> @log_with()
         >>> def func():
         >>>     pass
     """
     def decorator(func):
         # If logger is not set, set module's logger.
         _logger = logger if logger else logging.getLogger(func.__module__)
+        _ignore = set(ignore)
+        _arg_names = inspect.signature(func).parameters.keys()
+        _log = functools.partial(_logger.log, level=loglevel)
 
-        # Function signature
-        arg_names = inspect.signature(func).parameters.keys()
+        def message(*fmt: str) -> str:
+            return ' '.join(chain((format_func(func, qualname),), fmt))
 
-        # Logger message
-        msg = format_func(func, qualname) + ' {fmt}'
-
-        if timed:
-            @functools.wraps(func)
-            def _func(*args, **kwargs):
-                start = timer()
-                result = func(*args, **kwargs)
-                end = timer()
-                _logger.log(loglevel, msg.format(
-                    fmt='Time: {}'.format(format_time(timespan=(end - start)))))
-                return result
-        else:
-            _func = func
-
-        @functools.wraps(_func)
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            _logger.log(loglevel, msg.format(fmt=format_args(args, kwargs, arg_names)))
-            result = _func(*args, **kwargs)
+            if arguments:
+                _log(msg=message(
+                    format_args(args, kwargs, _arg_names, _ignore)))
+
+            start = timer()
+            result = func(*args, **kwargs)
+            end = timer()
+
+            if timed:
+                timespan = end - start
+                _log(msg=message('Time:', format_time(timespan)))
             return result
         return wrapper
     return decorator
