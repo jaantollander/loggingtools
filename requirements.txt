@@ -1,5 +1,5 @@
 colorlog==2.10.0
-colorama==0.3.7
+colorama==0.3.9
 
 ## ruamel is recommended over pyyaml because it can preserve comments
 ## and support newer standard of yaml
