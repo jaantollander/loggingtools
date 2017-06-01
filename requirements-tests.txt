@@ -1,7 +1,7 @@
 -r requirements.txt
 
 ## Packaging
-setuptools==35.0.1
+setuptools==36.0.0
 
 
 ## Testing
